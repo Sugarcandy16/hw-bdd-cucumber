@@ -3,9 +3,12 @@
 Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
+    #movies_path(:movie => movie)
+    @movie= Movie.create!(:title => movie["title"], :rating => movie["rating"], :release_date => movie["release_date"])   
+    #MoviesController.create
     # you should arrange to add that movie to the database here.
   end
-  fail "Unimplemented"
+  #fail "Unimplemented"
 end
 
 Then /(.*) seed movies should exist/ do | n_seeds |
