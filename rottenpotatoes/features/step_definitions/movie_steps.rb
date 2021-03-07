@@ -18,10 +18,16 @@ end
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page
 
+When /^(?:|I )follows "(.*)"/ do |link|
+  click_link(link)
+end
+
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  text=page.body.split(e2)
+  text[0].should have_content(e1)
+  #fail "Unimplemented"
 end
 
 # Make it easier to express checking or unchecking several boxes at once

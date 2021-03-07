@@ -23,9 +23,27 @@ Background: movies have been added to database
   Then 10 seed movies should exist
 
 Scenario: sort movies alphabetically
-  When I follow "Movie Title"
+  When I follows "Movie Title"
   # your steps here
+  Then I should see "2001: A Space" before "Aladdin"
+  Then I should see "Aladdin" before "Amelie"
+  Then I should see "Amelie" before "Chicken Run"
+  Then I should see "Chicken Run" before "Chocolat"
+  Then I should see "Chocolat" before "Raiders of"
+  Then I should see "Raiders of" before "The Help"
+  Then I should see "The Help" before "The Incredibles"
+  Then I should see "The Incredibles" before "The Terminator"
+  Then I should see "The Terminator" before "When Harry"
 
 Scenario: sort movies in increasing order of release date
-  When I follow "Release Date"
+  When I follows "Release Date"
   # your steps here
+  Then I should see "1968-04-06" before "1981-06-12"
+  Then I should see "1981-06-12" before "1984-10-26"
+  Then I should see "1984-10-26" before "1989-07-21"
+  Then I should see "1989-07-21" before "1992-11-25"
+  Then I should see "1992-11-25" before "2000-06-21"
+  Then I should see "2000-06-21" before "2001-01-05"
+  Then I should see "2001-01-05" before "2001-04-25"
+  Then I should see "2001-04-25" before "2004-11-05"
+  Then I should see "2004-11-05" before "2011-08-10"
